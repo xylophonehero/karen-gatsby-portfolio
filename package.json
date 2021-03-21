@@ -14,9 +14,22 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "^3.0.1",
+    "@chakra-ui/gatsby-plugin": "^1.0.1",
+    "@chakra-ui/react": "^1.4.1",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "framer-motion": "4",
+    "gatsby": "3.1",
+    "gatsby-plugin-gatsby-cloud": "^2.1.0",
+    "gatsby-plugin-image": "^1.1.1",
+    "gatsby-plugin-sharp": "^3.1.1",
+    "gatsby-source-contentful": "^5.1.1",
+    "gatsby-source-filesystem": "^3.1.0",
+    "gatsby-transformer-remark": "^3.1.0",
+    "gatsby-transformer-sharp": "^3.1.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0"
   },
   "devDependencies": {
     "prettier": "2.2.1"
