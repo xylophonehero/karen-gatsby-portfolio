@@ -1,40 +1,50 @@
-import { Box, Stack, Heading, VStack, Text } from '@chakra-ui/react';
+import { Box, Stack, Heading, VStack, Text, Icon } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { FaCat } from 'react-icons/fa'
 
 import PageLayout from '../components/PageLayout';
 import CTAButton from '../components/CTAButton';
+import Content from '../components/Content'
 
 
 function About({ data })
 {
-  const aboutInfo = data.contentfulAboutPage
+  const pageData = data.contentfulAboutPage
 
   return (
-    <PageLayout pageTitle={aboutInfo.title}>
+    <PageLayout pageTitle={pageData.title}>
       <Stack direction={["column", null, "row"]} spacing="8">
         <Box
           as={GatsbyImage}
-          image={getImage(aboutInfo.profile)}
-          w="400px"
+          image={getImage(pageData.profile)}
+          w="300px"
           alt="Karen"
-
+          borderRadius="xl"
         />
-        <Box dangerouslySetInnerHTML={{ __html: aboutInfo.body.childMarkdownRemark.html }} />
+        <Box maxW="56em">
+
+          <Content text={pageData.body} />
+        </Box>
       </Stack>
-      <VStack my="8" textAlign="center">
+      <VStack my="16" textAlign="center" spacing="8">
         <Heading fontSize="3xl">Want to talk about a project?</Heading>
         <CTAButton text="Let's Chat" url="/contact" />
         {/* <Text fontSize="xl">Let's chat: <a href="mailto:info@karenworrall.co.uk" rel="noreferrer" target="_blank">info@karenworrall.co.uk</a></Text> */}
       </VStack>
-      <Heading fontSize="4xl">Education</Heading>
-      <Text>I’m a big believer in constant personal development and honing your craft. Here’s a summary of my relevant education so far:</Text>
-      <ul>
-        {aboutInfo.education.map((item) => (
-          <li key={item.qualification}>{`${item.year} - ${item.qualification} - ${item.institution}`}</li>
+      <Box w="full" textAlign="left">
+        <Heading fontSize="4xl" textAlign="center" mb="4">Education</Heading>
+        <Text mb="2">I’m a big believer in constant personal development and honing your craft. Here’s a summary of my relevant education so far:</Text>
+
+        {pageData.education.map((item) => (
+          <Box key={item.id} mb="1" >
+            <Box as="span" fontWeight="medium" color="teal.700"><Icon as={FaCat} mr="2" mb="1" />{item.qualification}: </Box>
+            {item.year} - {item.institution}
+          </Box>
         ))}
-      </ul>
+
+      </Box>
     </PageLayout>
   );
 }
@@ -56,6 +66,7 @@ export const query = graphql`
         )
       }
       education {
+        id
         year
         qualification
         institution

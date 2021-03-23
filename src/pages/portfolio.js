@@ -68,12 +68,19 @@ export const query = graphql`
         tagline
         description {
           description
+          childMarkdownRemark{
+            html
+          }
         }
         thumb{
-          gatsbyImageData
+          gatsbyImageData(
+            placeholder: BLURRED
+          )
         }
         mainMedia{
-          gatsbyImageData
+          gatsbyImageData(
+            placeholder: BLURRED
+          )
           file{
             url
           }

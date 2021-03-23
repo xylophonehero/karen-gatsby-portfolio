@@ -14,6 +14,7 @@ function CTAButton({ text, url })
           bgGradient: "linear(to-r, teal.500, cyan.500)",
         }}
         className="cta-button"
+        color="white"
       >
         <Box
           as="span"

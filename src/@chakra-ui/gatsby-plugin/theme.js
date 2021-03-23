@@ -24,6 +24,34 @@ const theme = extendTheme({
         }
       }
 
+    },
+    Link: {
+      baseStyle: {
+        color: "teal.600"
+      }
+    }
+  },
+  styles: {
+    global: {
+      "html, body": {
+        overflowX: 0
+      },
+      ".content": {
+        h2: {
+          fontSize: "xl",
+          mb: "4",
+          fontWeight: "semibold"
+        },
+        "p:not(:last-child)": {
+          mb: "4"
+        },
+        a: {
+          color: "teal.600",
+          ":hover": {
+            textDecor: "underline"
+          }
+        }
+      }
     }
   }
 })

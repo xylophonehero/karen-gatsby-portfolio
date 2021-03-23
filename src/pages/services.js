@@ -1,18 +1,22 @@
 import { SimpleGrid } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import React from 'react';
+import FAQs from '../components/FAQs';
 import PageLayout from '../components/PageLayout';
 import ServicesCard from '../components/ServicesCard';
 
 function Services({ data })
 {
+  const pageData = data.contentfulServicesPage
+
   return (
-    <PageLayout pageTitle={data.contentfulServicesPage.title}>
+    <PageLayout pageTitle={pageData.title}>
       <SimpleGrid columns={[1, 2, 3, 4]} gap="8">
-        {data.contentfulServicesPage.services.map((service) => (
-          <ServicesCard {...service} />
+        {pageData.services.map((service) => (
+          <ServicesCard key={service.id} {...service} />
         ))}
       </SimpleGrid>
+      <FAQs faqs={pageData.faqs} />
     </PageLayout>
   );
 }
@@ -27,6 +31,15 @@ export const query = graphql`
         id
         title
         description {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      faqs {
+        id
+        question
+        answer {
           childMarkdownRemark {
             html
           }

@@ -1,6 +1,8 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 
+import Content from './Content'
+
 function ServicesCard({ title, description })
 {
   return (
@@ -21,8 +23,10 @@ function ServicesCard({ title, description })
         display="flex"
         flexDir="column"
         justifyContent="center"
-        dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }}
-      />
+      // dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }}
+      >
+        <Content text={description} />
+      </Box>
 
     </Box>
   );
