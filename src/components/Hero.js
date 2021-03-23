@@ -36,7 +36,7 @@ function Hero({ background, headline, description, profile })
         <VStack maxW={["full", "40vw"]} spacing="8" align="flex-start" justify="center">
           <Heading fontSize={["3xl", "3xl", "4xl"]}>{headline}</Heading>
           <Text fontSize={["lg", "xl", "2xl"]}>{description.description}</Text>
-          <CTAButton text="See my work" url="/" />
+          <CTAButton text="See my work" url="/portfolio" />
         </VStack>
       </Flex>
     </Box >

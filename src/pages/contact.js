@@ -1,11 +1,12 @@
 import React from 'react';
+import PageLayout from '../components/PageLayout';
 
 function Contact(props)
 {
   return (
-    <div>
-
-    </div>
+    <PageLayout pageTitle="Contact">
+      Coming soon!
+    </PageLayout>
   );
 }
 

@@ -15,15 +15,16 @@ function About({ data })
 
   return (
     <PageLayout pageTitle={pageData.title}>
-      <Stack direction={["column", null, "row"]} spacing="8">
+      <Stack direction={["column", null, "row"]} spacing="8" alignItems={["center", null, "start"]}>
         <Box
           as={GatsbyImage}
           image={getImage(pageData.profile)}
           w="300px"
+          maxH="400px"
           alt="Karen"
           borderRadius="xl"
         />
-        <Box maxW="56em">
+        <Box maxW={{ base: "full", md: "26em", lg: "36em", xl: "56em" }}>
 
           <Content text={pageData.body} />
         </Box>

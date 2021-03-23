@@ -1,14 +1,11 @@
 import React from "react";
-import { Link, Box, Flex, Text, Stack, Collapse, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+import { Link, Box, Flex, Text, Stack, Collapse, useDisclosure } from "@chakra-ui/react";
 import { Link as GatsbyLink } from 'gatsby'
 import Logo from '../../static/logo.svg'
 
 const NavBar = (props) =>
 {
-  // const [isOpen, setIsOpen] = React.useState(false);
   const { isOpen, onToggle } = useDisclosure()
-  const [isDesktop] = useMediaQuery("(min-width: 48em)")
-  // const toggle = () => setIsOpen(!isOpen);
 
   return (
     <NavBarContainer {...props}>
@@ -16,12 +13,16 @@ const NavBar = (props) =>
         to="/"
       >
         <Box w={["200px", "300px", "200px", "300px"]}>
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" width="300px" />
         </Box>
       </GatsbyLink>
 
       <MenuToggle toggle={onToggle} isOpen={isOpen} />
-      <MenuLinks isOpen={isDesktop || isOpen} />
+      <Box display={{ base: "none", md: "block" }}>
+        <MenuLinks />
+      </Box>
+
+      <MobileMenu isOpen={isOpen} />
     </NavBarContainer>
   );
 };
@@ -68,28 +69,38 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) =>
   );
 };
 
-const MenuLinks = ({ isOpen }) =>
+const MobileMenu = ({ isOpen }) =>
 {
   return (
+
     <Box
-      // display={{ base: isOpen ? "block" : "none", md: "block" }}
-      display="block"
-      flexBasis={{ base: "100%", md: "auto" }}
+      display={{ base: "block", md: "none" }}
+      flexBasis="100%"
     >
       <Collapse in={isOpen} animateOpacity>
-        <Stack
-          spacing={[4, 4, 4, 8]}
-          align="center"
-          justify={["center", "space-between", "flex-end", "flex-end"]}
-          direction={["column", "column", "row", "row"]}
-          pt={[4, 4, 0, 0]}
-        >
-          <MenuItem to="/about">About</MenuItem>
-          <MenuItem to="/services">Services</MenuItem>
-          <MenuItem to="/portfolio">Portfolio</MenuItem>
-          <MenuItem to="/testimonials">Testimonails</MenuItem>
-          <MenuItem to="/contact">Contact</MenuItem>
-          {/* <MenuItem to="/signup" isLast>
+        <MenuLinks />
+      </Collapse>
+    </Box>
+  )
+}
+
+const MenuLinks = () =>
+{
+  return (
+
+    <Stack
+      spacing={[4, 4, 4, 8]}
+      align="center"
+      justify={["center", "space-between", "flex-end", "flex-end"]}
+      direction={["column", "column", "row", "row"]}
+      pt={[4, 4, 0, 0]}
+    >
+      <MenuItem to="/about">About</MenuItem>
+      <MenuItem to="/services">Services</MenuItem>
+      <MenuItem to="/portfolio">Portfolio</MenuItem>
+      <MenuItem to="/testimonials">Testimonails</MenuItem>
+      <MenuItem to="/contact">Contact</MenuItem>
+      {/* <MenuItem to="/signup" isLast>
             <Button
               size="sm"
               rounded="md"
@@ -102,9 +113,8 @@ const MenuLinks = ({ isOpen }) =>
               Create Account
             </Button>
           </MenuItem> */}
-        </Stack>
-      </Collapse>
-    </Box>
+    </Stack>
+
   );
 };
 

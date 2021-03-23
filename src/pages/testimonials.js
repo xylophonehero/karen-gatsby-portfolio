@@ -8,7 +8,7 @@ function Testimonials({ data })
 {
   return (
     <PageLayout pageTitle="Testimonials">
-      <SimpleGrid columns={[1, 2]} spacing="10">
+      <SimpleGrid columns={[1, null, null, 2]} spacing="10">
         {data.contentfulTestimonialsPage.testimonials.map((testimonial) => (
           <TestimonialCard key={testimonial.id} {...testimonial} />
         ))}
