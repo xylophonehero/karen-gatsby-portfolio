@@ -2,6 +2,8 @@ import { Box, Stack, Text, VStack } from '@chakra-ui/react';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import Content from './Content'
+
 function TestimonialCard({ author, jobTitle, avatar, testimonial })
 {
   return (
@@ -15,7 +17,7 @@ function TestimonialCard({ author, jobTitle, avatar, testimonial })
       borderRadius="xl"
     >
       <Stack direction={["column", "row"]} spacing={["4", "8"]}>
-        <Box as={GatsbyImage} image={getImage(avatar)} w="8em" h="8em" borderRadius="full" />
+        <Box as={GatsbyImage} image={getImage(avatar)} w="8em" h="8em" borderRadius="full" alt={author} />
         <VStack spacing="4" alignItems="flex-start" flexShrink="10000">
           <Text as="h3" fontSize="2xl" fontWeight="semibold">{author}</Text>
           <Text>{jobTitle}</Text>
@@ -23,7 +25,7 @@ function TestimonialCard({ author, jobTitle, avatar, testimonial })
       </Stack>
       <Box as="hr" my="8" borderColor="black" />
       <Box>
-        <Text>{testimonial.testimonial}</Text>
+        <Content text={testimonial} as="cite" />
       </Box>
     </Box>
   );

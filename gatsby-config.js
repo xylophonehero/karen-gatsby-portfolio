@@ -7,8 +7,18 @@ require('dotenv').config()
 
 module.exports = {
   /* Your site config here */
-  flags: { PRESERVE_WEBPACK_CACHE: true },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    DEV_SSR: true,
+  },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -28,11 +38,11 @@ module.exports = {
       }
     },
     `gatsby-plugin-gatsby-cloud`,
-    "@chakra-ui/gatsby-plugin",
+    // "@chakra-ui/gatsby-plugin",
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `c41108r1k4qn`,
+        spaceId: `9hqhye2e9vh3`,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },

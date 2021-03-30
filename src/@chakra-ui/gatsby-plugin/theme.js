@@ -29,13 +29,18 @@ const theme = extendTheme({
       baseStyle: {
         color: "teal.600"
       }
+    },
+    GridItem: {
+      baseStyle: {
+        borderColor: "gray.400"
+      }
     }
   },
   styles: {
     global: {
-      "html, body": {
-        overflowX: 0
-      },
+      // "html, body": {
+      //   overflowX: 0
+      // },
       ".content": {
         h2: {
           fontSize: "xl",
@@ -51,6 +56,9 @@ const theme = extendTheme({
             textDecor: "underline"
           }
         }
+      },
+      ".pricing-grid > div": {
+        borderColor: "gray.400",
       }
     }
   }

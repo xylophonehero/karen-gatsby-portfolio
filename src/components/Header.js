@@ -18,7 +18,7 @@ const NavBar = (props) =>
       </GatsbyLink>
 
       <MenuToggle toggle={onToggle} isOpen={isOpen} />
-      <Box display={{ base: "none", md: "block" }}>
+      <Box display={{ base: "none", md: "block" }} pr={[0, 0, 4, 16, 32]}>
         <MenuLinks />
       </Box>
 
@@ -89,7 +89,7 @@ const MenuLinks = () =>
   return (
 
     <Stack
-      spacing={[4, 4, 4, 8]}
+      spacing={[4, 4, 4, 8, 16]}
       align="center"
       justify={["center", "space-between", "flex-end", "flex-end"]}
       direction={["column", "column", "row", "row"]}
@@ -100,19 +100,6 @@ const MenuLinks = () =>
       <MenuItem to="/portfolio">Portfolio</MenuItem>
       <MenuItem to="/testimonials">Testimonails</MenuItem>
       <MenuItem to="/contact">Contact</MenuItem>
-      {/* <MenuItem to="/signup" isLast>
-            <Button
-              size="sm"
-              rounded="md"
-              color={["primary.500", "primary.500", "white", "white"]}
-              bg={["white", "white", "primary.500", "primary.500"]}
-              _hover={{
-                bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-              }}
-            >
-              Create Account
-            </Button>
-          </MenuItem> */}
     </Stack>
 
   );
@@ -127,7 +114,7 @@ const NavBarContainer = ({ children, ...props }) =>
       justify="space-between"
       wrap="wrap"
       w="100%"
-      pos="fixed"
+      pos="sticky"
       top="0"
       zIndex="2"
       // zIndex="sticky"

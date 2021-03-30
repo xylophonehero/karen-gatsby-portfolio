@@ -35,7 +35,7 @@ function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedi
             // spacing="8"
             p="4"
           >
-            <GatsbyImage image={getImage(mainMedia)} />
+            <GatsbyImage image={getImage(mainMedia)} alt={title} />
             <Box ml={{ base: "0", lg: "10" }} >
               <Text as="h3" fontWeight="semibold" fontSize="xl">{tagline}</Text>
               <Box as="hr" my="4" />

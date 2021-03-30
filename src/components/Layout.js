@@ -8,9 +8,9 @@ import ProgressArrow from './ProgressArrow';
 function Layout({ children })
 {
   return (
-    <Flex direction="column" pos="relative" minH="100vh" overflowX="hidden">
+    <Flex direction="column" pos="relative" minH="100vh" >
       <Header />
-      <Box as="main" mt={["16", "20", "16", "20"]} flexGrow={1}>{children}</Box>
+      <Box as="main" flexGrow={1} overflowX="hidden">{children}</Box>
       <Footer />
       <ProgressArrow />
     </Flex>

@@ -23,7 +23,6 @@ function ServicesCard({ title, description })
         display="flex"
         flexDir="column"
         justifyContent="center"
-      // dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }}
       >
         <Content text={description} />
       </Box>

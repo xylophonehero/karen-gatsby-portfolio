@@ -7,7 +7,7 @@ function PortfolioFilter({ name, handleClick, filter })
 
   return (
     <Box
-
+      as="button"
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -15,6 +15,7 @@ function PortfolioFilter({ name, handleClick, filter })
       boxShadow="lg"
       borderRadius="8"
       p="2"
+      outline="none"
       onClick={() => handleClick(name)}
 
     >

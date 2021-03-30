@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import FAQs from '../components/FAQs';
 import PageLayout from '../components/PageLayout';
+import PricingBlocks from '../components/PricingBlocks';
 import ServicesCard from '../components/ServicesCard';
 
 function Services({ data })
@@ -16,6 +17,7 @@ function Services({ data })
           <ServicesCard key={service.id} {...service} />
         ))}
       </SimpleGrid>
+      <PricingBlocks pricings={pageData.pricings} />
       <FAQs faqs={pageData.faqs} />
     </PageLayout>
   );
@@ -44,6 +46,20 @@ export const query = graphql`
             html
           }
         }
+      }
+      pricings {
+        id
+        name
+        blurb {
+          childMarkdownRemark {
+            html
+          }
+        }
+        pounds
+        fullPricePounds
+        dollars
+        fullPriceDollars
+        features
       }
     }
   }

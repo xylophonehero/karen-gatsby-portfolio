@@ -2,7 +2,7 @@ import React from 'react';
 import PageLayout from '../components/PageLayout';
 import { graphql } from 'gatsby'
 import TestimonialCard from '../components/TestimonialCard';
-import { SimpleGrid } from '@chakra-ui/layout';
+import { SimpleGrid } from '@chakra-ui/react';
 
 function Testimonials({ data })
 {
@@ -28,7 +28,9 @@ export const query = graphql`
         author
         jobTitle
         testimonial{
-          testimonial
+          childMarkdownRemark {
+            html
+          }
         }
         avatar {
           gatsbyImageData
