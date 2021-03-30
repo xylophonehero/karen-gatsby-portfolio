@@ -1,12 +1,12 @@
-import { Box, Stack, Heading, VStack, Text, Icon } from '@chakra-ui/react';
+import { Box, Stack, Heading, Text, Icon, SimpleGrid } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { FaCat } from 'react-icons/fa'
+import { FaBook } from 'react-icons/fa'
 
 import PageLayout from '../components/PageLayout';
-import CTAButton from '../components/CTAButton';
 import Content from '../components/Content'
+import CTABlock from '../components/CTABlock';
 
 
 function About({ data })
@@ -29,21 +29,23 @@ function About({ data })
           <Content text={pageData.body} />
         </Box>
       </Stack>
-      <VStack my="16" textAlign="center" spacing="8">
-        <Heading fontSize="3xl">Want to talk about a project?</Heading>
-        <CTAButton text="Let's Chat" url="/contact" />
-        {/* <Text fontSize="xl">Let's chat: <a href="mailto:info@karenworrall.co.uk" rel="noreferrer" target="_blank">info@karenworrall.co.uk</a></Text> */}
-      </VStack>
+      <CTABlock
+        text="Want to talk about a project?"
+        buttonText="Let's Chat"
+        buttonTo="/contact"
+      />
       <Box w="full" textAlign="left">
         <Heading fontSize="4xl" textAlign="center" mb="4">Education</Heading>
-        <Text mb="2">I’m a big believer in constant personal development and honing your craft. Here’s a summary of my relevant education so far:</Text>
+        <Text textAlign="center" mb="4">I’m a big believer in constant personal development and honing your craft. Here’s a summary of my relevant education so far:</Text>
 
-        {pageData.education.map((item) => (
-          <Box key={item.id} mb="1" >
-            <Box as="span" fontWeight="medium" color="teal.700"><Icon as={FaCat} mr="2" mb="1" />{item.qualification}: </Box>
-            {item.year} - {item.institution}
-          </Box>
-        ))}
+        <SimpleGrid columns={[1, 1, 2]} spacing="4" maxW="4xl" mx="auto">
+          {pageData.education.map((item) => (
+            <Box key={item.id} >
+              <Box as="span" fontWeight="medium" color="teal.700"><Icon as={FaBook} mr="2" mb="1" />{item.qualification}: </Box>
+              <Box ml="6">{item.year} - {item.institution}</Box>
+            </Box>
+          ))}
+        </SimpleGrid>
 
       </Box>
     </PageLayout>

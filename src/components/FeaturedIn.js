@@ -20,8 +20,8 @@ function FeaturedIn(props)
     <Box bgColor="gray.200" p="6">
       <SimpleGrid columns={[1, 2, 4, 4, 8]}>
         {data.allFile.nodes.map(svg => (
-          <Flex w="150px" h="100px" justifyContent="center" direction="column" alignItems="center" mx="auto">
-            <img src={svg.publicURL} alt="name" />
+          <Flex key={svg.name} w="150px" h="100px" justifyContent="center" direction="column" alignItems="center" mx="auto">
+            <img src={svg.publicURL} alt={svg.name} />
           </Flex>
         ))}
       </SimpleGrid>

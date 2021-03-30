@@ -16,13 +16,13 @@ import Content from './Content'
 function FAQs({ faqs })
 {
   return (
-    <Box p="16" w="100%">
-      <Heading textAlign="center" mb="8">FAQs</Heading>
-      <Accordion w="full" maxW="72em">
+    <Box px="16" w="100%">
+      <Heading color="gray.600" textAlign="center" mb="8">FAQs</Heading>
+      <Accordion w="full" maxW="72em" allowToggle>
         {faqs.map((faq) => (
           <AccordionItem key={faq.id} mb="4" boxShadow="lg" borderRadius="xl" overflow="hidden">
 
-            <AccordionButton bgColor="teal.100" _expanded={{ bgColor: "teal.300" }}>
+            <AccordionButton bgColor="teal.100" _hover={{ bgColor: "teal.400" }} _expanded={{ bgColor: "teal.300" }}>
               <Box flex="1" textAlign="left">
                 <Text fontWeight="semibold" as="h3">{faq.question}</Text>
               </Box>

@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import PageLayout from '../components/PageLayout';
 import PortfolioCard from '../components/PortfolioCard';
 import PortfolioFilter from '../components/PortfolioFilter';
+import CTABlock from '../components/CTABlock'
 
 function Portfolio({ data })
 {
@@ -47,7 +48,11 @@ function Portfolio({ data })
           </AnimatePresence>
         </SimpleGrid>
       </AnimateSharedLayout>
-
+      <CTABlock
+        text="Want to talk about a project?"
+        buttonText="Let's Chat"
+        buttonTo="/contact"
+      />
     </PageLayout>
   );
 }

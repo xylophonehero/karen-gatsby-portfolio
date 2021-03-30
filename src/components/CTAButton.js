@@ -13,6 +13,9 @@ function CTAButton({ text, url })
         _hover={{
           bgGradient: "linear(to-r, teal.500, cyan.500)",
         }}
+        _active={{
+          bgGradient: "linear(to-r, teal.500, cyan.500)",
+        }}
         className="cta-button"
         color="white"
       >

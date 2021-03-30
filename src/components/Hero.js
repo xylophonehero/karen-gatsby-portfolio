@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Box, Heading, Flex, Text, VStack } from '@chakra-ui/react';
 
 import CTAButton from './CTAButton'
+import Content from './Content';
 
 function Hero({ background, headline, description, profile })
 {
@@ -35,7 +36,8 @@ function Hero({ background, headline, description, profile })
         </Box>
         <VStack maxW={["full", "40vw"]} spacing="8" align="flex-start" justify="center">
           <Heading fontSize={["3xl", "3xl", "4xl"]}>{headline}</Heading>
-          <Text fontSize={["lg", "xl", "2xl"]}>{description.description}</Text>
+          <Content text={description} as={Text} fontSize={["lg", "xl", "2xl"]} />
+          {/* <Text fontSize={["lg", "xl", "2xl"]}>{description.description}</Text> */}
           <CTAButton text="See my work" url="/portfolio" />
         </VStack>
       </Flex>

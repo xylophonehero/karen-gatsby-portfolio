@@ -3,6 +3,7 @@ import PageLayout from '../components/PageLayout';
 import { graphql } from 'gatsby'
 import TestimonialCard from '../components/TestimonialCard';
 import { SimpleGrid } from '@chakra-ui/react';
+import CTABlock from '../components/CTABlock'
 
 function Testimonials({ data })
 {
@@ -13,6 +14,11 @@ function Testimonials({ data })
           <TestimonialCard key={testimonial.id} {...testimonial} />
         ))}
       </SimpleGrid>
+      <CTABlock
+        text="Want to talk about a project?"
+        buttonText="Let's Chat"
+        buttonTo="/contact"
+      />
     </PageLayout>
   );
 }

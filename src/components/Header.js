@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, Box, Flex, Text, Stack, Collapse, useDisclosure } from "@chakra-ui/react";
-import { Link as GatsbyLink } from 'gatsby'
+import { Box, Flex, Text, Stack, Collapse, useDisclosure } from "@chakra-ui/react";
+import { Link } from 'gatsby'
 import Logo from '../../static/logo.svg'
 
 const NavBar = (props) =>
@@ -9,13 +9,13 @@ const NavBar = (props) =>
 
   return (
     <NavBarContainer {...props}>
-      <GatsbyLink
+      <Link
         to="/"
       >
-        <Box w={["200px", "300px", "200px", "300px"]}>
+        <Box w={["200px", "300px", "200px", "300px"]} h={["40px", "60px", "40px", "60px"]}>
           <img src={Logo} alt="logo" width="300px" />
         </Box>
-      </GatsbyLink>
+      </Link>
 
       <MenuToggle toggle={onToggle} isOpen={isOpen} />
       <Box display={{ base: "none", md: "block" }} pr={[0, 0, 4, 16, 32]}>
@@ -61,11 +61,24 @@ const MenuToggle = ({ toggle, isOpen }) =>
 const MenuItem = ({ children, isLast, to = "/", ...rest }) =>
 {
   return (
-    <Link href={to}>
-      <Text display="block" fontFamily="heading" textTransform="uppercase" color="gray.700" {...rest}>
+    <Box as={Link} to={to} className="navbar-link" pos="relative">
+      <Text display="block" fontFamily="heading" textTransform="uppercase" textDecor="none" color="gray.700" {...rest}>
         {children}
       </Text>
-    </Link>
+      <Box
+        pos="absolute"
+        h="2px"
+        bgColor="gray.700"
+        w="0"
+        transition="width 0.3s ease"
+
+        sx={{
+          ".navbar-link:hover &": {
+            width: "100%",
+          },
+        }}
+      />
+    </Box>
   );
 };
 
@@ -75,7 +88,13 @@ const MobileMenu = ({ isOpen }) =>
 
     <Box
       display={{ base: "block", md: "none" }}
+      pos="fixed"
+      top={["56px", "76px"]}
+      left="0"
       flexBasis="100%"
+      bgGradient="linear(to-r, teal.100, teal.300)"
+      w="full"
+      py="2"
     >
       <Collapse in={isOpen} animateOpacity>
         <MenuLinks />
@@ -117,10 +136,11 @@ const NavBarContainer = ({ children, ...props }) =>
       pos="sticky"
       top="0"
       zIndex="2"
+      // h={["72px", "96px", "72px", "96px"]}
       // zIndex="sticky"
       // mb={8}
       p={4}
-      bgGradient="linear(to-r, teal.200, teal.400)"
+      bgGradient="linear(to-r, teal.100, teal.300)"
       color="gray.600"
       {...props}
     >

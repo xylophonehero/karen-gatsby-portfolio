@@ -5,6 +5,7 @@ import FAQs from '../components/FAQs';
 import PageLayout from '../components/PageLayout';
 import PricingBlocks from '../components/PricingBlocks';
 import ServicesCard from '../components/ServicesCard';
+import CTABlock from '../components/CTABlock'
 
 function Services({ data })
 {
@@ -17,7 +18,12 @@ function Services({ data })
           <ServicesCard key={service.id} {...service} />
         ))}
       </SimpleGrid>
-      <PricingBlocks pricings={pageData.pricings} />
+      <PricingBlocks blockPricings={pageData.blockPricings} pricings={pageData.pricings} />
+      <CTABlock
+        text="Want to talk about a project?"
+        buttonText="Let's Chat"
+        buttonTo="/contact"
+      />
       <FAQs faqs={pageData.faqs} />
     </PageLayout>
   );
@@ -46,6 +52,20 @@ export const query = graphql`
             html
           }
         }
+      }
+      blockPricings {
+        id
+        name
+        blurb {
+          childMarkdownRemark {
+            html
+          }
+        }
+        pounds
+        fullPricePounds
+        dollars
+        fullPriceDollars
+        features
       }
       pricings {
         id

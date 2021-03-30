@@ -35,8 +35,8 @@ function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedi
             // spacing="8"
             p="4"
           >
-            <GatsbyImage image={getImage(mainMedia)} alt={title} />
-            <Box ml={{ base: "0", lg: "10" }} >
+            <Box as={GatsbyImage} image={getImage(mainMedia)} alt={title} flexGrow="1" />
+            <Box ml={{ base: "0", lg: "10" }} maxW="400px" >
               <Text as="h3" fontWeight="semibold" fontSize="xl">{tagline}</Text>
               <Box as="hr" my="4" />
               <Content text={description} />
@@ -50,7 +50,7 @@ function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedi
             <Button as="a" href={realLink} target="_blank" >
               Read More
               </Button>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="teal" mr={3} onClick={onClose}>
               Close
             </Button>
           </HStack>

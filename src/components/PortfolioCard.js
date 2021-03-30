@@ -32,9 +32,10 @@ function PortfolioCard({ title, tagline, description, thumb, mainMedia, link, pd
         transformOrigin="bottom"
         overflow="hidden"
         onClick={onOpen}
+        cursor="pointer"
       >
         <Box as={GatsbyImage} image={getImage(thumb)} alt={title} h="48" />
-        <Box bgGradient="linear(to-l,teal.200,teal.50)" p="4" display="flex" flexDir="column" alignItems="center" justifyContent="center" flexGrow="1">
+        <Box bgGradient="linear(to-l,teal.200,teal.50)" p="4" display="flex" flexDir="column" alignItems="center" justifyContent="center" h="20">
           <Text textAlign="center" fontSize="xl" fontWeight="semibold" >{title}</Text>
         </Box>
       </Box>

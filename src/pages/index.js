@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import Hero from "../components/Hero"
 import FeaturedIn from "../components/FeaturedIn"
+import HomeLinkBlock from "../components/HomeLinkBlock"
 // import Layout from '../components/Layout'
 
 export default function Home({ data })
@@ -11,6 +12,14 @@ export default function Home({ data })
     <>
       <Hero {...data.contentfulHero} />
       <FeaturedIn />
+      <HomeLinkBlock
+        title="Read more about me"
+        text={data.contentfulHero.description}
+        buttonText="Read more"
+        buttonTo="/about"
+      >
+
+      </HomeLinkBlock>
     </>
   )
 }
@@ -20,7 +29,9 @@ export const query = graphql`
     contentfulHero {
       headline
       description {
-        description
+        childMarkdownRemark {
+          html
+        }
       }
       background {
         gatsbyImageData(
