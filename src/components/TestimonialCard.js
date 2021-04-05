@@ -18,7 +18,7 @@ function TestimonialCard({ author, jobTitle, avatar, testimonial })
     >
       <Stack direction={["column", "row"]} spacing={["4", "8"]}>
         <Box as={GatsbyImage} image={getImage(avatar)} w="8em" h="8em" borderRadius="full" alt={author} />
-        <VStack spacing="4" alignItems="flex-start" flexShrink="10000">
+        <VStack spacing="4" alignItems="flex-start" flexShrink="10000" justifyContent="center">
           <Text as="h3" fontSize="2xl" fontWeight="semibold">{author}</Text>
           <Text>{jobTitle}</Text>
         </VStack>

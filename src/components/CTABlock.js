@@ -6,7 +6,7 @@ function CTABlock({ text, buttonText, buttonTo })
 {
   return (
     <VStack p="8" m="16" textAlign="center" spacing="8" bg="gray.200" rounded="xl">
-      <Heading fontSize="3xl">{text}</Heading>
+      <Heading fontSize="3xl" color="black">{text}</Heading>
       <CTAButton text={buttonText} url={buttonTo} />
     </VStack>
   );

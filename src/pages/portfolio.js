@@ -22,7 +22,7 @@ function Portfolio({ data })
 
   const filteredPortfolio = filter === "All"
     ? data.contentfulPortfolioPage.portfolioItems :
-    data.contentfulPortfolioPage.portfolioItems.filter(x => x.categories.some(y => y.name === filter))
+    data.contentfulPortfolioPage.portfolioItems.filter(x => x.categories?.some(y => y.name === filter))
 
   return (
     <PageLayout pageTitle="Portfolio">

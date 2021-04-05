@@ -11,7 +11,7 @@ const theme = extendTheme({
     }
   },
   fonts: {
-    heading: "Trocchi"
+    heading: "Trocchi",
   },
   components: {
     Container: {
@@ -34,7 +34,12 @@ const theme = extendTheme({
       baseStyle: {
         borderColor: "gray.400"
       }
-    }
+    },
+    Heading: {
+      baseStyle: {
+        color: "gray.600"
+      }
+    },
   },
   styles: {
     global: {
@@ -43,6 +48,11 @@ const theme = extendTheme({
       // },
       ".content": {
         h2: {
+          fontSize: "xl",
+          mb: "4",
+          fontWeight: "semibold"
+        },
+        h3: {
           fontSize: "xl",
           mb: "4",
           fontWeight: "semibold"
@@ -59,6 +69,9 @@ const theme = extendTheme({
       },
       ".pricing-grid > div": {
         borderColor: "gray.400",
+      },
+      ".slick-list": {
+        marginX: "50px"
       }
     }
   }

@@ -18,7 +18,12 @@ function Services({ data })
           <ServicesCard key={service.id} {...service} />
         ))}
       </SimpleGrid>
-      <PricingBlocks blockPricings={pageData.blockPricings} pricings={pageData.pricings} />
+      <PricingBlocks
+        blockPricings={pageData.blockPricings}
+        pricings={pageData.pricings}
+        afterBlock={pageData.afterBlock}
+        afterPricing={pageData.afterPricing}
+      />
       <CTABlock
         text="Want to talk about a project?"
         buttonText="Let's Chat"
@@ -67,6 +72,11 @@ export const query = graphql`
         fullPriceDollars
         features
       }
+      afterBlock {
+        childMarkdownRemark {
+          html
+        }
+      }
       pricings {
         id
         name
@@ -80,6 +90,11 @@ export const query = graphql`
         dollars
         fullPriceDollars
         features
+      }
+      afterPricing {
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }

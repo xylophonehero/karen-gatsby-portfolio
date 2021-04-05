@@ -5,7 +5,7 @@ function PageLayout({ children, pageTitle })
 {
   return (
     <Container centerContent size="large" py={16}>
-      <Heading color="gray.600" mb={12}>{pageTitle}</Heading>
+      <Heading mb={12}>{pageTitle}</Heading>
       {children}
     </Container>
   );

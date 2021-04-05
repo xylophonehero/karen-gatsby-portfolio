@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import Content from './Content';
 
-function PricingBlocks({ blockPricings, pricings })
+function PricingBlocks({ blockPricings, pricings, afterBlock, afterPricing })
 {
   const [inPounds, setInPounds] = useState(true)
 
@@ -23,7 +23,8 @@ function PricingBlocks({ blockPricings, pricings })
           <PricingCard key={pricing.id} {...pricing} inPounds={inPounds} />
         ))}
       </SimpleGrid>
-      <SimpleGrid columns={[1, 1, 2]} gap="8" mb="8" display={["grid", null, "none"]}>
+      <Content text={afterBlock} />
+      <SimpleGrid columns={[1, 1, 2]} gap="8" my="8" display={["grid", null, "none"]}>
         {pricings.map((pricing) => (
           <PricingCard key={pricing.id} {...pricing} inPounds={inPounds} />
         ))}
@@ -31,25 +32,26 @@ function PricingBlocks({ blockPricings, pricings })
 
       <Grid
         className="pricing-grid"
-        templateColumns="repeat(5,1fr)"
+        templateColumns={["minmax(250px, 1fr) repeat(3,1fr)", null, null, "minmax(400px, 1fr) repeat(3,1fr)"]}
         display={["none", null, "grid"]}
         boxShadow="lg"
         borderRadius="lg"
+        my="8"
       >
         {features.map((feature, index) => (
-          <GridItem key={feature} colStart={1} colSpan={2} rowStart={4 + index} borderTop="solid 1px">
+          <GridItem key={feature} colStart={1} rowStart={4 + index} borderTop="solid 1px">
             <Text py="2" pl="6">{feature}</Text>
           </GridItem>
         ))}
         {pricings.map((pricing, index) => (
           <React.Fragment key={pricing.id}>
-            <GridItem colStart={index + 3} rowStart={1} borderLeft="solid 1px" p="2">
+            <GridItem colStart={index + 2} rowStart={1} borderLeft="solid 1px" p="2">
               <Text textAlign="center" fontWeight="semibold" fontSize="2xl">{pricing.name}</Text>
             </GridItem>
-            <GridItem colStart={index + 3} rowStart={2} borderLeft="solid 1px" p="2">
+            <GridItem colStart={index + 2} rowStart={2} borderLeft="solid 1px" p="2">
               <Content text={pricing.blurb} />
             </GridItem>
-            <GridItem colStart={index + 3} rowStart={3} borderLeft="solid 1px" p="2" textAlign="center">
+            <GridItem colStart={index + 2} rowStart={3} borderLeft="solid 1px" p="2" textAlign="center">
               <Text as="s" fontWeight="semibold" fontSize="xl">
                 {format({
                   amount: inPounds ? pricing.fullPricePounds : pricing.fullPriceDollars,
@@ -64,7 +66,7 @@ function PricingBlocks({ blockPricings, pricings })
               </Text>
             </GridItem>
             {features.map((feature, featureIndex) => (
-              <GridItem key={feature} colStart={index + 3} rowStart={4 + featureIndex} borderTop="solid 1px" borderLeft="solid 1px">
+              <GridItem key={feature} colStart={index + 2} rowStart={4 + featureIndex} borderTop="solid 1px" borderLeft="solid 1px">
                 <Flex w="full" h="full" justify="center" alignItems="center">
                   {(pricing.features.some(x => x === feature)) && <Icon as={FaCheck} />}
                 </Flex>
@@ -73,6 +75,7 @@ function PricingBlocks({ blockPricings, pricings })
           </React.Fragment>
         ))}
       </Grid>
+      <Content text={afterPricing} />
     </Box>
   );
 }
@@ -105,12 +108,16 @@ function PricingCard({ name, blurb, pounds, fullPricePounds, dollars, fullPriceD
           })}
         </Text>
       </Box>
-      <hr />
-      <Box p="4">
-        {features.map((feature) => (
-          <Text key={feature}><Icon as={FaCheck} mr="2" />{feature}</Text>
-        ))}
-      </Box>
+      {!!features &&
+        <>
+          <hr />
+          <Box p="4">
+            {features.map((feature) => (
+              <Text key={feature}><Icon as={FaCheck} mr="2" />{feature}</Text>
+            ))}
+          </Box>
+        </>
+      }
     </Flex>
   )
 }
