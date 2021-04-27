@@ -17,7 +17,7 @@ import Content from '../components/Content';
 function Contact({ data })
 {
   return (
-    <PageLayout pageTitle={data.contentfulContactPage.title}>
+    <PageLayout pageTitle={data.contentfulContactPage.title} size="small">
       <Content text={data.contentfulContactPage.message} />
       <form action="https://submit-form.com/ThNpTWwV" style={{ width: "100%", marginTop: "16px" }}>
         <VStack spacing="4" w="100%" >

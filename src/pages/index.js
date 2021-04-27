@@ -6,7 +6,7 @@ import FeaturedIn from "../components/FeaturedIn"
 // import HomeLinkBlock from "../components/HomeLinkBlock"
 import CTABlock from '../components/CTABlock'
 import TestimonialSlider from "../components/TestimonialSlider"
-import { Box, SimpleGrid, Heading, Container } from "@chakra-ui/react"
+import { Box, SimpleGrid, Heading, Container, Flex } from "@chakra-ui/react"
 import PortfolioCard from "../components/PortfolioCard"
 import CTAButton from "../components/CTAButton"
 // import TestimonialCarousel from "../components/TestimonialCarousel"
@@ -68,11 +68,13 @@ export default function Home({ data })
       >
         Some testimonials
       </HomeLinkBlock> */}
-      <CTABlock
-        text="Want to talk about a project?"
-        buttonText="Let's Chat"
-        buttonTo="/contact"
-      />
+      <Flex w="full" justify="center">
+        <CTABlock
+          text="Want to talk about a project?"
+          buttonText="Let's Chat"
+          buttonTo="/contact"
+        />
+      </Flex>
     </>
   )
 }

@@ -21,13 +21,17 @@ const theme = extendTheme({
       sizes: {
         large: {
           maxW: { base: '100%', lg: '1152px', xl: '1344px' }
+        },
+        small: {
+          maxW: { base: '100%', lg: '48rem', xl: '48rem' }
         }
       }
 
     },
     Link: {
       baseStyle: {
-        color: "teal.600"
+        color: "teal.600",
+        fontWeight: "semibold"
       }
     },
     GridItem: {
@@ -62,6 +66,7 @@ const theme = extendTheme({
         },
         a: {
           color: "teal.600",
+          fontWeight: "semibold",
           ":hover": {
             textDecor: "underline"
           }

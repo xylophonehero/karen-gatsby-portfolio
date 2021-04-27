@@ -18,7 +18,7 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 
 import Content from './Content'
 
-function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedia, link, pdf })
+function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedia, link, pdf, categories })
 {
   const realLink = link ? link : pdf ? pdf.file.url : mainMedia.file.url
 
@@ -48,8 +48,8 @@ function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedi
 
           <HStack spacing="8">
             <Button as="a" href={realLink} target="_blank" >
-              Read More
-              </Button>
+              {categories.some(y => y.name === "Script writing") ? "Watch" : "Read More"}
+            </Button>
             <Button colorScheme="teal" mr={3} onClick={onClose}>
               Close
             </Button>
