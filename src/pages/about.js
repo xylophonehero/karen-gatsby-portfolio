@@ -15,17 +15,17 @@ function About({ data })
 
   return (
     <PageLayout pageTitle={pageData.title}>
-      <Stack direction={["column", null, "row"]} spacing="8" alignItems={["center", null, "start"]}>
+      <Stack direction={["column", null, null, "row"]} spacing="8" alignItems={["center", null, null, "start"]}>
         <Box
-          w={["auto", null, "auto"]}
-          h={["auto", null, "400px"]}
-          maxW={["500px", null, "300px"]}
+          w={["auto", null, null, "auto"]}
+          h={["auto", null, null, "350px"]}
+          maxW={["500px", null, null, "350px", "350px"]}
           borderRadius="xl"
           overflow="hidden"
         >
-          <GatsbyImage image={getImage(pageData.profile)} alt="Karen" objectPosition="0% 50%" objectFit="cover" style={{ height: '100%' }} />
+          <GatsbyImage image={getImage(pageData.profile)} alt="Karen" objectPosition="20% 50%" objectFit="cover" style={{ height: '100%' }} />
         </Box>
-        <Box maxW={{ base: "full", md: "26em", lg: "36em", xl: "56em" }}>
+        <Box maxW={{ base: "full", md: "full", lg: "32em", xl: "52em" }}>
 
           <Content text={pageData.body} />
         </Box>
