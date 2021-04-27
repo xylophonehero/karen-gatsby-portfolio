@@ -21,6 +21,7 @@ function PortfolioCard({ title, tagline, description, thumb, mainMedia, link, pd
         display="flex"
         flexDir="column"
         w="full"
+        maxW="350px"
         h="full"
         borderRadius="xl"
         boxShadow="xl"

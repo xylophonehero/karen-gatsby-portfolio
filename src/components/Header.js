@@ -5,7 +5,7 @@ import Logo from '../../static/logo.svg'
 
 const NavBar = (props) =>
 {
-  const { isOpen, onToggle } = useDisclosure()
+  const { isOpen, onToggle, onClose } = useDisclosure()
 
   return (
     <NavBarContainer {...props}>
@@ -19,10 +19,10 @@ const NavBar = (props) =>
 
       <MenuToggle toggle={onToggle} isOpen={isOpen} />
       <Box display={{ base: "none", md: "block" }} pr={[0, 0, 4, 16, 32]}>
-        <MenuLinks />
+        <MenuLinks onClose={onClose} />
       </Box>
 
-      <MobileMenu isOpen={isOpen} />
+      <MobileMenu isOpen={isOpen} onClose={onClose} />
     </NavBarContainer>
   );
 };
@@ -58,10 +58,10 @@ const MenuToggle = ({ toggle, isOpen }) =>
   );
 };
 
-const MenuItem = ({ children, isLast, to = "/", onToggle = () => { } }) =>
+const MenuItem = ({ children, isLast, to = "/", onClose }) =>
 {
   return (
-    <Box as={Link} to={to} className="navbar-link" pos="relative" onClick={onToggle}>
+    <Box as={Link} to={to} className="navbar-link" pos="relative" onClick={onClose}>
       <Text display="block" fontFamily="heading" textTransform="uppercase" textDecor="none" color="gray.700" >
         {children}
       </Text>
@@ -82,7 +82,7 @@ const MenuItem = ({ children, isLast, to = "/", onToggle = () => { } }) =>
   );
 };
 
-const MobileMenu = ({ isOpen }) =>
+const MobileMenu = ({ isOpen, onClose }) =>
 {
   return (
 
@@ -97,13 +97,13 @@ const MobileMenu = ({ isOpen }) =>
       py="2"
     >
       <Collapse in={isOpen} animateOpacity>
-        <MenuLinks />
+        <MenuLinks onClose={onClose} />
       </Collapse>
     </Box>
   )
 }
 
-const MenuLinks = () =>
+const MenuLinks = ({ onClose }) =>
 {
   return (
 
@@ -114,11 +114,11 @@ const MenuLinks = () =>
       direction={["column", "column", "row", "row"]}
       pt={[4, 4, 0, 0]}
     >
-      <MenuItem to="/about">About</MenuItem>
-      <MenuItem to="/services">Services</MenuItem>
-      <MenuItem to="/portfolio">Portfolio</MenuItem>
-      <MenuItem to="/testimonials">Testimonials</MenuItem>
-      <MenuItem to="/contact">Contact</MenuItem>
+      <MenuItem to="/about" onClose={onClose} >About</MenuItem>
+      <MenuItem to="/services" onClose={onClose}>Services</MenuItem>
+      <MenuItem to="/portfolio" onClose={onClose}>Portfolio</MenuItem>
+      <MenuItem to="/testimonials" onClose={onClose}>Testimonials</MenuItem>
+      <MenuItem to="/contact" onClose={onClose}>Contact</MenuItem>
     </Stack>
 
   );

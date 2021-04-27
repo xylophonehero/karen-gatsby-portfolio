@@ -65,7 +65,7 @@ export const query = graphql`
         }
       }
       profile {
-        gatsbyImageData
+        gatsbyImageData(placeholder: BLURRED)
       }
       education {
         id
