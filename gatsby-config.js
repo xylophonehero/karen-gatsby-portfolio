@@ -37,6 +37,18 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Karen Worrall | Copywriter and Content Writer`,
+        short_name: `Karen Worrall`,
+        start_url: `/`,
+        background_color: `#03e3d1`,
+        theme_color: `#4a5568`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
     // "@chakra-ui/gatsby-plugin",
     {

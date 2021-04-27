@@ -27,7 +27,7 @@ function Portfolio({ data })
   return (
     <PageLayout pageTitle="Portfolio">
       <AnimateSharedLayout>
-        <SimpleGrid columns={[2, 2, 4]} spacing={[4, 8]} mb="8">
+        <SimpleGrid columns={[2, 2, 3]} spacing={[4, 8]} mb="8">
           {data.contentfulPortfolioPage.categories.map((category) => (
             <PortfolioFilter key={category.id} name={category.name} handleClick={handleClick} filter={filter} />
           ))}

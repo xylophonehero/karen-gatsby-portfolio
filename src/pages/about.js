@@ -17,13 +17,14 @@ function About({ data })
     <PageLayout pageTitle={pageData.title}>
       <Stack direction={["column", null, "row"]} spacing="8" alignItems={["center", null, "start"]}>
         <Box
-          as={GatsbyImage}
-          image={getImage(pageData.profile)}
-          w="300px"
-          maxH="400px"
-          alt="Karen"
+          w={["auto", null, "auto"]}
+          h={["auto", null, "400px"]}
+          maxW={["500px", null, "300px"]}
           borderRadius="xl"
-        />
+          overflow="hidden"
+        >
+          <GatsbyImage image={getImage(pageData.profile)} alt="Karen" objectPosition="0% 50%" objectFit="cover" style={{ height: '100%' }} />
+        </Box>
         <Box maxW={{ base: "full", md: "26em", lg: "36em", xl: "56em" }}>
 
           <Content text={pageData.body} />
@@ -64,9 +65,7 @@ export const query = graphql`
         }
       }
       profile {
-        gatsbyImageData(
-          width: 400
-        )
+        gatsbyImageData
       }
       education {
         id

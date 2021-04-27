@@ -36,7 +36,7 @@ function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedi
             p="4"
           >
             <Box as={GatsbyImage} image={getImage(mainMedia)} alt={title} flexGrow="1" />
-            <Box ml={{ base: "0", lg: "10" }} maxW="400px" >
+            <Box ml={{ base: "0", lg: "10" }} maxW="400px" mb="4" >
               <Text as="h3" fontWeight="semibold" fontSize="xl">{tagline}</Text>
               <Box as="hr" my="4" />
               <Content text={description} />

@@ -58,11 +58,11 @@ const MenuToggle = ({ toggle, isOpen }) =>
   );
 };
 
-const MenuItem = ({ children, isLast, to = "/", ...rest }) =>
+const MenuItem = ({ children, isLast, to = "/", onToggle = () => { } }) =>
 {
   return (
-    <Box as={Link} to={to} className="navbar-link" pos="relative">
-      <Text display="block" fontFamily="heading" textTransform="uppercase" textDecor="none" color="gray.700" {...rest}>
+    <Box as={Link} to={to} className="navbar-link" pos="relative" onClick={onToggle}>
+      <Text display="block" fontFamily="heading" textTransform="uppercase" textDecor="none" color="gray.700" >
         {children}
       </Text>
       <Box
@@ -78,7 +78,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) =>
           },
         }}
       />
-    </Box>
+    </Box >
   );
 };
 

@@ -26,15 +26,15 @@ function TestimonialSlider({ testimonials })
   }
 
   return (
-    <Box maxW="6xl" mx="auto" my={["4", "4", "16"]}>
+    <Box maxW="6xl" mx="auto" my={["4", "4", "16"]} px="4">
       <Heading as="h2" textAlign="center" fontSize="4xl" fontWeight="semibold" mb="4">Snippets from testimonials:</Heading>
-      <Box p={["4", "4", "8"]} bgColor="gray.200" boxShadow="xl" >
+      <Box px={[1, "4", "8"]} py={[4, 4, 8]} bgColor="gray.200" boxShadow="xl" >
         <Slider {...settings}>
           {testimonials.map((testimonial) => (
             <Box outline="none" key={testimonial.id}>
               <Stack
                 direction={["column", null, "row"]}
-                px="2"
+                px={[0, 2]}
               >
                 <Box h="100px" w="100px" borderRadius="full" >
                   <Box as={GatsbyImage} image={getImage(testimonial.avatar)} alt={testimonial.author} h="100px" w="100px" borderRadius="full" />
@@ -73,6 +73,7 @@ function NextArrow({ className, style, onClick })
   return (
     <IconButton
       pos="absolute"
+      size="sm"
       top="50%"
       right="0"
       variant="ghost"
@@ -88,6 +89,7 @@ function PrevArrow({ className, style, onClick })
     <IconButton
       pos="absolute"
       top="50%"
+      size="sm"
       left="0"
       variant="ghost"
       transform="translateY(-50%)"
