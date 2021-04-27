@@ -13,7 +13,7 @@ import CTABlock from '../components/CTABlock'
 
 function Portfolio({ data })
 {
-  const [filter, setFilter] = useState("All")
+  const [filter, setFilter] = useState("Highlights")
 
   const handleClick = (name) =>
   {
@@ -28,10 +28,10 @@ function Portfolio({ data })
     <PageLayout pageTitle="Portfolio">
       <AnimateSharedLayout>
         <SimpleGrid columns={[2, 2, 4]} spacing={[4, 8]} mb="8">
-          <PortfolioFilter name="All" handleClick={handleClick} filter={filter} />
           {data.contentfulPortfolioPage.categories.map((category) => (
             <PortfolioFilter key={category.id} name={category.name} handleClick={handleClick} filter={filter} />
           ))}
+          <PortfolioFilter name="All" handleClick={handleClick} filter={filter} />
         </SimpleGrid>
       </AnimateSharedLayout>
 

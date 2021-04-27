@@ -28,7 +28,7 @@ function Footer()
           ))}
         </Stack>
         <Flex flexDir={["column", "row"]} justifyContent="space-between" maxW="720px" w="full" textAlign="center">
-          <Text mb="4">Copywright © {new Date().getFullYear()} Karen Worrall</Text>
+          <Text mb="4">Copyright © {new Date().getFullYear()} Karen Worrall</Text>
           <Text>Website created by <Link href="https://nickworrall.co.uk" isExternal>Nick Worrall</Link></Text>
         </Flex>
       </VStack>

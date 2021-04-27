@@ -58,7 +58,7 @@ function PricingBlocks({ blockPricings, pricings, afterBlock, afterPricing })
                   currency: inPounds ? 'GBP' : 'USD'
                 })}
               </Text>
-              <Text fontWeight="semibold" fontSize="3xl">
+              <Text fontWeight="semibold" fontSize="2xl">
                 {format({
                   amount: inPounds ? pricing.pounds : pricing.dollars,
                   currency: inPounds ? 'GBP' : 'USD'
@@ -101,7 +101,7 @@ function PricingCard({ name, blurb, pounds, fullPricePounds, dollars, fullPriceD
             currency: inPounds ? 'GBP' : 'USD'
           })}
         </Text>
-        <Text fontWeight="semibold" fontSize="3xl" display="inline-block">
+        <Text fontWeight="semibold" fontSize="2xl" display="inline-block">
           {format({
             amount: inPounds ? pounds : dollars,
             currency: inPounds ? 'GBP' : 'USD'
