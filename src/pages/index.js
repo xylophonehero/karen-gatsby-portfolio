@@ -57,6 +57,7 @@ export const query = graphql`
         background {
           gatsbyImageData(
             placeholder: BLURRED
+            quality: 40
           )
         }
         profile {
