@@ -21,8 +21,8 @@ function Portfolio({ data })
   }
 
   const filteredPortfolio = filter === "All"
-    ? data.contentfulPortfolioPage.portfolioItems :
-    data.contentfulPortfolioPage.portfolioItems.filter(x => x.categories?.some(y => y.name === filter))
+    ? data.allContentfulPortfolio.nodes :
+    data.allContentfulPortfolio.nodes.filter(x => x.categories?.some(y => y.name === filter))
 
   return (
     <PageLayout pageTitle="Portfolio">
@@ -61,6 +61,38 @@ export default Portfolio;
 
 export const query = graphql`
   query PortfolioQuery {
+    allContentfulPortfolio(sort: {order: DESC, fields: createdAt}) {
+      nodes {
+        id
+        title
+        createdAt
+        tagline
+        description {
+          description
+          childMarkdownRemark {
+            html
+          }
+        }
+        thumb {
+          gatsbyImageData(placeholder: BLURRED)
+        }
+        mainMedia {
+          gatsbyImageData(placeholder: BLURRED)
+          file {
+            url
+          }
+        }
+        link
+        pdf {
+          file {
+            url
+          }
+        }
+        categories {
+          name
+        }
+      }
+    }
     contentfulPortfolioPage {
       title
       categories {
@@ -70,6 +102,7 @@ export const query = graphql`
       portfolioItems{
         id
         title
+        createdAt
         tagline
         description {
           description

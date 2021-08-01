@@ -32,42 +32,6 @@ export default function Home({ data })
         <CTAButton text="See more" url="/portfolio" />
       </Container>
       <Box h="2" bgGradient="linear(to-r, teal.500, cyan.500)" />
-      {/* <HomeLinkBlock
-        title="About me"
-        text={data.contentfulHomePage.homeHero.description}
-        buttonText="Read more"
-        buttonTo="/about"
-      >
-        Some about content
-      </HomeLinkBlock>
-      <HomeLinkBlock
-        title="Services and pricing"
-        text={data.contentfulHomePage.homeHero.description}
-        buttonText="Services"
-        buttonTo="/services"
-        left
-      >
-        Some service content
-      </HomeLinkBlock>
-      <HomeLinkBlock
-        title="My work"
-        text={data.contentfulHomePage.homeHero.description}
-        buttonText="Read more"
-        buttonTo="/portfolio"
-        isLast
-      >
-        Some of my portfolio
-      </HomeLinkBlock> */}
-      {/* <HomeLinkBlock
-        title="My testimonials"
-        text={data.contentfulHomePage.homeHero.description}
-        buttonText="See more"
-        buttonTo="/testimonials"
-        left
-        isLast
-      >
-        Some testimonials
-      </HomeLinkBlock> */}
       <Flex w="full" justify="center">
         <CTABlock
           text="Want to talk about a project?"
