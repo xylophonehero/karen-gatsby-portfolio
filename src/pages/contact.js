@@ -1,7 +1,6 @@
-import React from 'react';
-import { graphql } from 'gatsby'
-import
-{
+import React from "react"
+import { graphql } from "gatsby"
+import {
   Button,
   FormControl,
   FormLabel,
@@ -11,16 +10,19 @@ import
   VStack,
 } from "@chakra-ui/react"
 
-import PageLayout from '../components/PageLayout';
-import Content from '../components/Content';
+import PageLayout from "../components/PageLayout"
+import Content from "../components/Content"
 
-function Contact({ data })
-{
+function Contact({ data }) {
   return (
     <PageLayout pageTitle={data.contentfulContactPage.title} size="small">
       <Content text={data.contentfulContactPage.message} />
-      <form action="https://submit-form.com/ThNpTWwV" style={{ width: "100%", marginTop: "16px" }}>
-        <VStack spacing="4" w="100%" >
+      <form
+        action="https://submit-form.com/wIROtiiz"
+        style={{ width: "100%", marginTop: "16px" }}
+        data-botpoison-public-key="pk_07a00cab-4171-405f-9211-8ee1a50f83a8"
+      >
+        <VStack spacing="4" w="100%">
           <FormControl id="name" isRequired>
             <FormLabel htmlFor="name">Name</FormLabel>
             <Input name="name" required="" placeholder="Name" />
@@ -47,14 +49,16 @@ function Contact({ data })
               rows="5"
             />
           </FormControl>
-          <Button type="submit" colorScheme="teal">Send</Button>
+          <Button type="submit" colorScheme="teal">
+            Send
+          </Button>
         </VStack>
       </form>
     </PageLayout>
-  );
+  )
 }
 
-export default Contact;
+export default Contact
 
 export const query = graphql`
   query ContactQuery {
