@@ -11,7 +11,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "refresh": "curl -X POST localhost:8000/__refresh"
   },
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^2.0.1",

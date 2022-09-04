@@ -48,7 +48,7 @@ function PortfolioModal({ isOpen, onClose, title, tagline, description, mainMedi
 
           <HStack spacing="8">
             <Button as="a" href={realLink} target="_blank" >
-              {categories.some(y => y.name === "Script writing") ? "Watch" : "Read More"}
+              {categories?.some(y => y.name === "TV and Video") ? "Watch" : "Read More"}
             </Button>
             <Button colorScheme="teal" mr={3} onClick={onClose}>
               Close
